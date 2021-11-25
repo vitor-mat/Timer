@@ -15,11 +15,42 @@
             <span></span>
         </div>
         <div id="controls">
+            <div id="edit-painel">
+                <div>
+                    <h1>Editar Temporizador</h1>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horas</th>
+                            <th>Minutos</th>
+                            <th>Segundo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name="hours-select" id="hours-select"></select>
+                            </td>
+                            <td>
+                                <select name="minutes-select" id="minutes-select"></select>
+                            </td>
+                            <td>
+                                <select name="seconds-select" id="seconds-select"></select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button>Cancelar</button>
+                    <button>Iniciar</button>
+                </div>
+            </div>
             <button>Editar</button>
             <button>Reiniciar</button>
             <button>Iniciar</button>
         </div>
     </div>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </body>
 </html>
