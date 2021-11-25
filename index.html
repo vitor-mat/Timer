@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,50 +8,74 @@
     <title>Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <div id="timer">
-            <span></span>
-            <span></span>
-            <span></span>
+
+<div id="black-screen" class="hidden-black-painel">
+    <div id="edit-painel" class="hidden-edit-painel">
+        <div id="title-painel-div">
+            <h1>Editar Temporizador</h1>
         </div>
-        <div id="controls">
-            <div id="edit-painel">
-                <div>
-                    <h1>Editar Temporizador</h1>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Horas</th>
-                            <th>Minutos</th>
-                            <th>Segundo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select name="hours-select" id="hours-select"></select>
-                            </td>
-                            <td>
-                                <select name="minutes-select" id="minutes-select"></select>
-                            </td>
-                            <td>
-                                <select name="seconds-select" id="seconds-select"></select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div>
-                    <button>Cancelar</button>
-                    <button>Iniciar</button>
-                </div>
-            </div>
-            <button>Editar</button>
-            <button>Reiniciar</button>
-            <button>Iniciar</button>
+        <table>
+            <thead class="test">
+                <tr>
+                    <th>
+                        <div class="celula-table">
+                            Horas
+                        </div>
+                    </th>
+                    <th>
+                        <div class="celula-table">
+                            Minutos
+                        </div>
+                    </th>
+                    <th>
+                        <div class="celula-table">
+                            Segundo
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="celula-table">
+                            <select name="hours-select" id="hours-select"></select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="celula-table">
+                            <select name="minutes-select" id="minutes-select"></select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="celula-table">
+                            <select name="seconds-select" id="seconds-select"></select>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="edit-painel-controls">
+            <button id="edit-painel-controls-cancel-btn">Cancelar</button>
+            <button id="edit-painel-controls-start-btn">Iniciar</button>
         </div>
     </div>
-    <script src="./script.js" defer></script>
+</div>
+
+<div class="container">
+    <div id="display">
+        <span>00</span>
+        <span>:</span>
+        <span>00</span>
+        <span>:</span>
+        <span>00</span>
+    </div>
+    <div id="controls">
+        <button id="btn-edit">Editar</button>
+        <button id="btn-restart">Reiniciar</button>
+        <button id="btn-start">Iniciar</button>
+    </div>
+</div>
+<script src="./script.js" defer></script>
 </body>
+
 </html>
