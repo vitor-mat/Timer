@@ -105,7 +105,7 @@
     padding: 10px;
     height: 80px;
     width: 100%;
-    font-size: 100%;
+    font-size: 24px;
 }
 
 #edit-painel table {
@@ -168,4 +168,35 @@
     background: #fd6b6b;
     color: white;
     border: none;
+}
+
+
+@media(max-width: 610px){
+    #display span {
+        font-size: 80px;
+    }
+}
+
+
+@media(max-width: 460px){
+    #display span {
+        font-size: 64px;
+    }    
+
+    #edit-painel #title-painel-div{
+        height: 60px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 360px){
+    #display span {
+        font-size: 56px;
+    }
+}
+
+@media(max-width: 320px){
+    #display span {
+        font-size: 48px;
+    }
 }
