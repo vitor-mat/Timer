@@ -47,7 +47,7 @@ document.getElementById("edit-painel-controls-cancel-btn").addEventListener("cli
 
 let hours,
     minutes,
-    seconds
+    seconds = -1
 
 function showHours(){
     const hoursSelect = document.getElementById("hours-select");
@@ -116,7 +116,7 @@ function timerFunction(){
         if(seconds > 0){
             showSeconds(false)
             seconds--
-        }else{
+        }else if(seconds === 0){
             showSeconds(false)
             seconds--
         }
