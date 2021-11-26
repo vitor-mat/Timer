@@ -165,7 +165,7 @@ document.getElementById("edit-painel-controls-start-btn").addEventListener("clic
     timerFunction()
 })
 
-document.getElementById("edit-painel-controls-cancel-btn").addEventListener("click", ()=>{
+function closeEditPainel(){
     const blackScreen = document.getElementById("black-screen")
 
     const editPainel = document.getElementById("edit-painel")
@@ -179,7 +179,9 @@ document.getElementById("edit-painel-controls-cancel-btn").addEventListener("cli
     if(runTime.aplication){
         timerFunction()
     }
-})
+}
+
+document.getElementById("edit-painel-controls-cancel-btn").addEventListener("click", closeEditPainel)
 
 document.getElementById("btn-restart").addEventListener("click", () => {
     showHours(true)
@@ -191,3 +193,9 @@ let runTime= {
     aplication: false,
     editPainel: true
 }
+
+document.getElementById("black-screen").addEventListener("click", (e) => {
+    if(e.target.id === "black-screen" ){
+        closeEditPainel()
+    }
+})
