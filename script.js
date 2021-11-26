@@ -134,6 +134,8 @@ function timerFunction(){
             }
          
             if(seconds < 0){
+                startBtn.textContent = "Iniciar"
+                startBtn.style.background = "#28b964"
                 setTimeout(() => alert("Timer encerrado!"), 1000)
                 clearInterval(timerAction)
             }
