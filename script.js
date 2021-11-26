@@ -114,9 +114,18 @@ function timerFunction(){
         console.log(seconds)
 
         if(seconds > 0){
-            showSeconds(false)
             seconds--
+            showSeconds(false)
         }else if(seconds === 0){
+
+            if(minutes > 0){
+                minutes--
+                showMinutes(false)
+                seconds = 59
+                showSeconds(false)
+                return;
+            }
+
             showSeconds(false)
             seconds--
         }
