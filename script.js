@@ -45,31 +45,53 @@ document.getElementById("edit-painel-controls-cancel-btn").addEventListener("cli
     editPainel.classList.remove("show-edit-painel")
 })
 
-function newTimer(){
+let hours,
+    minutes,
+    seconds
+
+function showHours(){
     const hoursSelect = document.getElementById("hours-select");
-    const minutesSelect = document.getElementById("minutes-select");
-    const secondsSelect = document.getElementById("seconds-select");
 
     const hoursDisplay = document.getElementById("hours-display");
+
+    hours = Number(hoursSelect.value)
+
+    if(hours < 10){
+        hoursDisplay.textContent = "0"+hours
+    }else{
+        hoursDisplay.textContent = hours
+    }
+}
+
+function showMinutes(startTimer = true){
+    const minutesSelect = document.getElementById("minutes-select");
+
     const minutesDisplay = document.getElementById("minutes-display");
+
+    if(startTimer){
+        minutes = Number(minutesSelect.value)
+    }
+
+    if(minutes < 10){
+        minutesDisplay.textContent = "0"+minutes
+    }else{
+        minutesDisplay.textContent = minutes
+    }
+}
+
+function showSeconds(startTimer = true){
+    const secondsSelect = document.getElementById("seconds-select");
+
     const secondsDisplay = document.getElementById("seconds-display");
 
-    if(hoursSelect.value < 10){
-        hoursDisplay.textContent = "0"+hoursSelect.value
-    }else{
-        hoursDisplay.textContent = hoursSelect.value
-    }
-
-    if(minutesSelect.value < 10){
-        minutesDisplay.textContent = "0"+minutesSelect.value
-    }else{
-        minutesDisplay.textContent = minutesSelect.value
+    if(startTimer){
+        seconds = Number(secondsSelect.value)
     }
     
-    if(secondsSelect.value < 10){
-        secondsDisplay.textContent = "0"+secondsSelect.value
+    if(seconds < 10){
+        secondsDisplay.textContent = "0"+seconds
     }else{
-        secondsDisplay.textContent = secondsSelect.value
+        secondsDisplay.textContent = seconds
     }
 }
 
@@ -82,6 +104,32 @@ document.getElementById("edit-painel-controls-start-btn").addEventListener("clic
 
     editPainel.classList.remove("show-edit-painel")
 
-    newTimer()
+    showHours()
+    showMinutes()
+    showSeconds()
+})
+
+function timerFunction(){
+    const timerAction = setInterval(async () => {
+        console.log(seconds)
+
+        if(seconds > 0){
+            showSeconds(false)
+            seconds--
+        }else{
+            showSeconds(false)
+            seconds--
+        }
+     
+        if(seconds < 0){
+            setTimeout(() => alert("Timer encerrado!"), 1000)
+            clearInterval(timerAction)
+        }
+
+    }, 1000)
+}
+
+document.getElementById("btn-start").addEventListener("click", () => {
+    timerFunction()
 })
 
