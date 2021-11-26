@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -17,6 +19,7 @@
 
 #display span {
     font-size: 108px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #controls {
@@ -102,7 +105,7 @@
     padding: 10px;
     height: 80px;
     width: 100%;
-    font-size: 24px;
+    font-size: 100%;
 }
 
 #edit-painel table {
