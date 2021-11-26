@@ -179,6 +179,12 @@ document.getElementById("edit-painel-controls-cancel-btn").addEventListener("cli
     }
 })
 
+document.getElementById("btn-restart").addEventListener("click", () => {
+    showHours(true)
+    showMinutes(true)
+    showSeconds(true)
+})
+
 let runTime= {
     aplication: false,
     editPainel: true
