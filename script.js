@@ -113,6 +113,11 @@ document.getElementById("edit-painel-controls-start-btn").addEventListener("clic
 })
 
 function timerFunction(){
+        
+    const startBtn = document.getElementById("btn-start")
+    startBtn.textContent = "Parar"
+    startBtn.style.background = "#fd6b6b"
+
     const timerAction = setInterval(async () => {
         console.log(seconds)
 
