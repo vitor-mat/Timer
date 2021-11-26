@@ -33,16 +33,8 @@ document.getElementById("btn-edit").addEventListener("click", () => {
     blackScreen.classList.add("show-black-painel")
 
     editPainel.classList.add("show-edit-painel")
-})
-
-document.getElementById("edit-painel-controls-cancel-btn").addEventListener("click", ()=>{
-    const blackScreen = document.getElementById("black-screen")
-
-    const editPainel = document.getElementById("edit-painel")
-
-    blackScreen.classList.remove("show-black-painel")
-
-    editPainel.classList.remove("show-edit-painel")
+    
+    runTime.editPainel = false
 })
 
 let hours,
@@ -97,29 +89,13 @@ function showSeconds(startTimer = true){
     }
 }
 
-document.getElementById("edit-painel-controls-start-btn").addEventListener("click", ()=>{
-    const blackScreen = document.getElementById("black-screen")
-
-    const editPainel = document.getElementById("edit-painel")
-
-    blackScreen.classList.remove("show-black-painel")
-
-    editPainel.classList.remove("show-edit-painel")
-
-    showHours()
-    showMinutes()
-    showSeconds()
-    runTime.aplication = true
-    timerFunction()
-})
-
 function timerFunction(){
     const startBtn = document.getElementById("btn-start")
 
    
         const timerAction = setInterval(async () => {
 
-            if(runTime.aplication){
+            if(runTime.aplication && runTime.editPainel){
                 startBtn.textContent = "Parar"
                 startBtn.style.background = "#fd6b6b"
             }else{
@@ -170,7 +146,40 @@ document.getElementById("btn-start").addEventListener("click", () => {
     runTime.aplication = !runTime.aplication
 })
 
+document.getElementById("edit-painel-controls-start-btn").addEventListener("click", ()=>{
+    const blackScreen = document.getElementById("black-screen")
+
+    const editPainel = document.getElementById("edit-painel")
+
+    blackScreen.classList.remove("show-black-painel")
+
+    editPainel.classList.remove("show-edit-painel")
+
+    showHours()
+    showMinutes()
+    showSeconds()
+    runTime.aplication = true
+    runTime.editPainel = true
+    timerFunction()
+})
+
+document.getElementById("edit-painel-controls-cancel-btn").addEventListener("click", ()=>{
+    const blackScreen = document.getElementById("black-screen")
+
+    const editPainel = document.getElementById("edit-painel")
+
+    blackScreen.classList.remove("show-black-painel")
+
+    editPainel.classList.remove("show-edit-painel")
+
+    runTime.editPainel = true
+
+    if(runTime.aplication){
+        timerFunction()
+    }
+})
+
 let runTime= {
     aplication: false,
-    editPainel: false
+    editPainel: true
 }
