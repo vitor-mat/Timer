@@ -109,55 +109,68 @@ document.getElementById("edit-painel-controls-start-btn").addEventListener("clic
     showHours()
     showMinutes()
     showSeconds()
+    runTime.aplication = true
     timerFunction()
 })
 
 function timerFunction(){
-        
     const startBtn = document.getElementById("btn-start")
-    startBtn.textContent = "Parar"
-    startBtn.style.background = "#fd6b6b"
 
-    const timerAction = setInterval(async () => {
-        console.log(seconds)
+   
+        const timerAction = setInterval(async () => {
 
-        if(seconds > 0){
-            seconds--
-            showSeconds(false)
-        }else if(seconds === 0){
-
-            if(minutes > 0){
-                minutes--
-                showMinutes(false)
-                seconds = 59
-                showSeconds(false)
+            if(runTime.aplication){
+                startBtn.textContent = "Parar"
+                startBtn.style.background = "#fd6b6b"
+            }else{
+                startBtn.textContent = "Iniciar"
+                startBtn.style.background = "#28b964"
+                clearInterval(timerAction)
                 return;
             }
 
-            if(hours > 0){
-                minutes = 59
-                showMinutes(false)
-                seconds = 59
+            if(seconds > 0){
+                seconds--
                 showSeconds(false)
-                hours--
-                showHours(false)
-
-                return;
+            }else if(seconds === 0){
+    
+                if(minutes > 0){
+                    minutes--
+                    showMinutes(false)
+                    seconds = 59
+                    showSeconds(false)
+                    return;
+                }
+    
+                if(hours > 0){
+                    minutes = 59
+                    showMinutes(false)
+                    seconds = 59
+                    showSeconds(false)
+                    hours--
+                    showHours(false)
+    
+                    return;
+                }
+    
+                showSeconds(false)
+                seconds--
             }
-
-            showSeconds(false)
-            seconds--
-        }
-     
-        if(seconds < 0){
-            setTimeout(() => alert("Timer encerrado!"), 1000)
-            clearInterval(timerAction)
-        }
-
-    }, 1000)
+         
+            if(seconds < 0){
+                setTimeout(() => alert("Timer encerrado!"), 1000)
+                clearInterval(timerAction)
+            }
+    
+        }, 1000)
 }
 
 document.getElementById("btn-start").addEventListener("click", () => {
     timerFunction()
+    runTime.aplication = !runTime.aplication
 })
 
+let runTime= {
+    aplication: false,
+    editPainel: false
+}
