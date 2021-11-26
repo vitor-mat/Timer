@@ -49,12 +49,14 @@ let hours,
     minutes,
     seconds = -1
 
-function showHours(){
+function showHours(startTimer = true){
     const hoursSelect = document.getElementById("hours-select");
 
     const hoursDisplay = document.getElementById("hours-display");
 
-    hours = Number(hoursSelect.value)
+    if(startTimer){
+        hours = Number(hoursSelect.value)
+    }
 
     if(hours < 10){
         hoursDisplay.textContent = "0"+hours
@@ -123,6 +125,17 @@ function timerFunction(){
                 showMinutes(false)
                 seconds = 59
                 showSeconds(false)
+                return;
+            }
+
+            if(hours > 0){
+                minutes = 59
+                showMinutes(false)
+                seconds = 59
+                showSeconds(false)
+                hours--
+                showHours(false)
+
                 return;
             }
 
