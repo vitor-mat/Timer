@@ -109,6 +109,7 @@ document.getElementById("edit-painel-controls-start-btn").addEventListener("clic
     showHours()
     showMinutes()
     showSeconds()
+    timerFunction()
 })
 
 function timerFunction(){
