@@ -13,13 +13,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 150px;
+    padding-top: 50px;
     gap: 30px;
+}
+
+#title-aplication-div{
+    font-size: 48px;
+    margin-bottom: 100px;
+    text-transform: uppercase;
+    text-decoration: underline;
 }
 
 #display span {
     font-size: 108px;
     font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    padding: 5px;
 }
 
 #controls {
@@ -171,14 +180,30 @@
 }
 
 
-@media(max-width: 610px){
+@media(max-width: 780px){
+    #title-aplication-div{
+        font-size: 40px
+    }
+}
+
+@media(max-width: 660px){
+    #title-aplication-div{
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
     #display span {
         font-size: 80px;
     }
 }
 
 
-@media(max-width: 460px){
+@media(max-width: 500px){
+    #title-aplication-div{
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
     #display span {
         font-size: 64px;
     }    
@@ -189,13 +214,18 @@
     }
 }
 
-@media(max-width: 360px){
+@media(max-width: 420px){
+    #title-aplication-div{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
     #display span {
         font-size: 56px;
     }
 }
 
-@media(max-width: 320px){
+@media(max-width: 370px){
     #display span {
         font-size: 48px;
     }
