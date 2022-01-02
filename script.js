@@ -47,6 +47,7 @@ function showHours(startTimer = true){
     const hoursDisplay = document.getElementById("hours-display");
 
     if(startTimer){
+        
         hours = Number(hoursSelect.value)
     }
 
